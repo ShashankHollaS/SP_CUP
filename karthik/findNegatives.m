@@ -1,6 +1,8 @@
-load("dataset1.mat")
+%load("dataset1.mat")
 s = size(pilotMatrix4N);
 negativePairs = zeros(s(2)/2, 2);
+
+% Find pairs (i, j) such that pilotMatrix config(i)=-pilotMatrix config(j)
 for i=1:s(2)/2
     for j=s(2)/2+1:s(2)
         t=1;

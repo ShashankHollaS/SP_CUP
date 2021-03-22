@@ -1,7 +1,10 @@
-load("dataset1.mat")
+%load("dataset1.mat")
 s = size(pilotMatrix4N);
 samePairs = zeros(s(2)/2, 2);
 noise = zeros(K, s(2)/2);
+
+% Find pairs (i, j) such that pilotMatrix config(i)=pilotMatrix config(j)
+% After finding such pairs, get difference between receivedSignal(j) and receivedSignal(i)  
 for i=1:s(2)/2
     for j=s(2)/2+1:s(2)
         t=1;
