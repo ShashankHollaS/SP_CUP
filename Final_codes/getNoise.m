@@ -13,5 +13,6 @@ pd_real = fitdist(real(net_noise),'Normal');
 pd_imag = fitdist(imag(net_noise),'Normal');
 
 % this is the estimated mean and variance of the noise added to the dataset
-mean = pd_real.mu + 1j * pd_imag.mu;
-sigma = pd_real.sigma + 1j * pd_imag.sigma;
+
+global mean = pd_real.mu + 1j * pd_imag.mu;
+global sigma = pd_real.sigma + 1j * pd_imag.sigma;
