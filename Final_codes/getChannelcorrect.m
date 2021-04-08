@@ -18,4 +18,4 @@ tmp = ((receivedSignal(:, :, 40) - noise)) ./ transmitSignal;
 %tmp1 = zeros(500, 4096);
 %tmp1(:, 1) = hd_plus_vi1;
 channel = (tmp - hd_plus_vi1)/(pilotMatrix); % eqn (4)
-print("Channel estimated");
+disp("Channel estimated");
