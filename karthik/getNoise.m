@@ -12,6 +12,7 @@ net_noise = reshape(noise, [], 1);
 pd_real = fitdist(real(net_noise),'Normal');
 pd_imag = fitdist(imag(net_noise),'Normal');
 
-% this is the estimated mean and variance of the noise added to the dataset
+% this is the estimated mean and standard deviation of the noise added to the dataset
 mean = pd_real.mu + 1j * pd_imag.mu;
-sigma = pd_real.sigma + 1j * pd_imag.sigma;
+stddev = pd_real.sigma + 1j * pd_imag.sigma;
+variance = (abs(stddev).^2)/2;
