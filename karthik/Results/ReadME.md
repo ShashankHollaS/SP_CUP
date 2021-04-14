@@ -1,1 +1,1 @@
-Max Rate and Indices for Users 26 - 50
+Max Rate and Indices for Users 1 - 50
