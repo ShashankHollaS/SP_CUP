@@ -74,7 +74,7 @@ global hd_plus_vi1;
 global channel;
 
 for i = 1:500
-        h = hd_plus_vi1(i) + channel(i,:)*(theta_tmp');
+        h = hd_plus_vi1(i) + channel(i,2:4096)*(theta_tmp(2:4096)');
         y = y - (B/(K+M-1))*log2(1 + (P*(abs(h)^2)) / (B*N0));
         
 end
