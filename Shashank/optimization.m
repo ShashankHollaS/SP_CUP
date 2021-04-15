@@ -1,16 +1,17 @@
-getChannelcorrect
+getChannelcorrect(u)
 
 lb = ones(4096,1);
 ub = 2*ones(4096,1);
 theta_in = rand(1,4096);
 for j = 1:4096
    if theta_in(j) < 0.5
-       theta_in(j) = -1;
+       theta_in(j) = 1;
    else
-      theta_in(j) = 1; 
-   end
-    
+      theta_in(j) = 2; 
+   end    
 end
+load Best_rates
+theta_in = MapVariables_rev(Best_rates(u))
 opts = optimoptions(@ga,'InitialPopulationMatrix',theta_in,'MaxGenerations',100, 'MaxStallGenerations', 100, 'PopulationSize', 200, 'CrossoverFraction', 0.8, 'PlotFcn', @gaplotbestf);
 [theta_val, fval, exitflag, output, final_val] = ga(@rate, 4096, [], [], [], [], lb, ub, [], 1:4096, opts);
 
@@ -36,7 +37,7 @@ global channel;
 
 for i = 1:500
         h = hd_plus_vi1(i) + channel(i,:)*(theta_tmp');
-        y = y - (B/K+M-1)*log2(1 + (P*(abs(h)^2)) / (B*N0));
+        y = y - (B/(K+M-1))*log2(1 + (P*(abs(h)^2)) / (B*N0));
         
 end
 end
