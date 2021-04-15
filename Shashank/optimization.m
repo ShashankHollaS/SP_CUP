@@ -11,7 +11,7 @@ for j = 1:4096
    end    
 end
 load Best_rates
-theta_in = MapVariables_rev(Best_rates(u))
+theta_in = MapVariables_rev(pilotMatrix(:,4))'; % change this by seeing Best_indices.mat
 opts = optimoptions(@ga,'InitialPopulationMatrix',theta_in,'MaxGenerations',100, 'MaxStallGenerations', 100, 'PopulationSize', 200, 'CrossoverFraction', 0.8, 'PlotFcn', @gaplotbestf);
 [theta_val, fval, exitflag, output, final_val] = ga(@rate, 4096, [], [], [], [], lb, ub, [], 1:4096, opts);
 
