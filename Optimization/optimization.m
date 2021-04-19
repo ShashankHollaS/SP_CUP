@@ -8,7 +8,7 @@ All_Values = {};
 lb = ones(4096,1);
 ub = 2*ones(4096,1);
 
-for u = 26 : 26 % Change this for Users ( 1 : 50)
+for u = 1 : 50 % Change this for Users ( 1 : 50)
     
     disp("Best Configuration for User " + num2str(u));
     
