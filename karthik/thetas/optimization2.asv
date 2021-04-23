@@ -1,0 +1,14 @@
+load D:\sixth-sem\sp_cup_2021\dataset2.mat % change path accordingly
+
+users = [1, 5, 6, 7, 9, 11, 15, 16, 17, 19, 22, 27, 29, 30, 31, 32, 33, 35, 36, 37, 38, 40, 41, 42, 43, 45];
+
+for i=1:size(users')
+    filename = "user" + num2str(users(i)) + "_thetas.mat";
+    load(filename);
+    theta_in = thetas(:, 3);
+    for j=1:4096
+        if theta_in(j)==1
+            theta_in(j) = -1
+    end
+    break
+end
