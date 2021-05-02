@@ -1,6 +1,6 @@
 # Sub Carrier Method
 
-This contains Theta and Rate Values for all Users using the Sub Carrier Method. Essentially, we sort using the Subcarrier powers and take the first _max_iter_per_loop_ values, and see if the Rate increases for changes in these values.
+This contains Theta Values for all Users using the Sub Carrier Method. Essentially, we sort using the Subcarrier powers and take the first _max_iter_per_loop_ values, and see if the Rate increases for changes in these values.
 
 ## Further Improvements :
 
