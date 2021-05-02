@@ -40,11 +40,11 @@
 
 20 - 125.38 (Lesser than the max configuration)
 
-21
+21 - 106.24
 
 22 - 72.900 (**NLOS**)
 
-23
+23 - 106.47
 
 24
 
