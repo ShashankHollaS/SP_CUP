@@ -1,4 +1,4 @@
-# Rates
+# Rates, All are 75, only 45th is 256
 
 1
 
