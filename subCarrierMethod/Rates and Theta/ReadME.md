@@ -38,7 +38,7 @@
 
 19 - 123.62
 
-20 - 125.38
+20 - 125.38 (Lesser than the max configuration)
 
 21
 
