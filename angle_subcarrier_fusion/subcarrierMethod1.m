@@ -52,9 +52,13 @@ for userNo = 1:50
             end
         end
         disp(i);
-        disp(get_rate(hd_plus_vi1, channel, theta));
+		rate = get_rate(hd_plus_vi1, channel, theta);
+        disp(rate);
     end
     save("new_theta_" + num2str(userNo) + ".mat", 'theta');
+	fileID = fopen('Angle_SC_Results.txt','a');
+    fprintf(fileID, 'Rate for user %d : %06f\n', userNo, rate);
+    fclose(fileID);
 end
 
 function y = flip_element(x)
