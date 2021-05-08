@@ -2,9 +2,10 @@ getNoise
 load dataset2.mat
 
 max_iter_per_loop = 200;   
-syms r1 r2;
+users = [3, 16, 22, 30, 32, 33, 34, 35, 38, 40, 45];
 
-for userNo = 1:50
+for user = 1:11
+    userNo = users(user);
     [hd_plus_vi1, channel] = findChannel(receivedSignal, transmitSignal, pilotMatrix, userNo);
 
     subcarrier_powers = zeros(500, 1);
@@ -40,10 +41,8 @@ for userNo = 1:50
                 else
                     theta1 = theta;
                     theta1(ran, 1) = flip_element(theta(ran, 1));
-                    x = get_rate1(hd_plus_vi1, channel, theta);
-                    r1 = vpa(x, 20);
-                    y = get_rate1(hd_plus_vi1, channel, theta1);
-                    r2 = vpa(y, 20);
+                    r1 =  get_rate1(hd_plus_vi1, channel, theta);
+                    r2 = get_rate1(hd_plus_vi1, channel, theta1);
                     if r1<r2
                         theta(ran, 1) = curr_theta(ran, 1);
                         switched = switched+1;
@@ -52,13 +51,9 @@ for userNo = 1:50
             end
         end
         disp(i);
-		rate = get_rate(hd_plus_vi1, channel, theta);
-        disp(rate);
+        disp(get_rate(hd_plus_vi1, channel, theta));
     end
     save("new_theta_" + num2str(userNo) + ".mat", 'theta');
-	fileID = fopen('Angle_SC_Results.txt','a');
-    fprintf(fileID, 'Rate for user %d : %06f\n', userNo, rate);
-    fclose(fileID);
 end
 
 function y = flip_element(x)
